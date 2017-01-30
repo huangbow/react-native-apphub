@@ -9,7 +9,7 @@
   	"react-native",
   	"react-component",
   	"ios",
-  	"AppHub"
+  	"AppHub",
     "CodePush"
   ],
   "repository": {
