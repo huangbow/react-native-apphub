@@ -15,8 +15,12 @@ var RNAppHub = {
     NativeRNAppHub.test();
   }
 
-  setUpAppHub: function(rootURL: string, applicationID: string) {
-  	NativeRNAppHub.setUpAppHub(rootURL, applicationID);
+  initAppHubWithServer: function(rootURL: string, applicationID: string) {
+  	NativeRNAppHub.initAppHubWithServer(rootURL, applicationID);
+  }
+
+  initAppHubr: function(applicationID: string) {
+  	NativeRNAppHub.initAppHub(applicationID);
   }
 
   setRootURL: function(rootURL: string) {
@@ -25,6 +29,10 @@ var RNAppHub = {
 
   setApplicationID: function(applicationID: string) {
   	NativeRNAppHub.setApplicationID(applicationID);
+  }
+
+  setAutomaticPollingEnabled: function(toggle: boolean) {
+  	NativeRNAppHub.setAutomaticPollingEnabled(toggle);
   }
 
   fetchBuild: function () {

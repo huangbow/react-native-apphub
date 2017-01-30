@@ -5,14 +5,23 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(setUpAppHub:(NSString *) rootURL applicationID:(NSString *) applicationID) {
+RCT_EXPORT_METHOD(initAppHubWithServer:(NSString *) rootURL applicationID:(NSString *) applicationID) {
     [AppHub setRootURL:rootURL];
+    [AppHub setApplicationID:applicationID];
+    [AppHub buildManager].automaticPollingEnabled = NO; // control polling build in JS
+}
+
+RCT_EXPORT_METHOD(initAppHub(NSString *) applicationID) {
     [AppHub setApplicationID:applicationID];
     [AppHub buildManager].automaticPollingEnabled = NO; // control polling build in JS
 }
 
 RCT_EXPORT_METHOD(setRootURL:(NSString *) rootURL) {
     [AppHub setRootURL:rootURL];
+}
+
+RCT_EXPORT_METHOD(setAutomaticPollingEnabled:(BOOL) toggle) {
+    [AppHub buildManager].automaticPollingEnabled = toggle;
 }
 
 RCT_EXPORT_METHOD(setApplicationID:(NSString *) applicationID) {
