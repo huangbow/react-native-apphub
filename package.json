@@ -1,6 +1,6 @@
 {
   "name": "react-native-apphub",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "React Native AppHub JS Wrapper",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,11 @@
   	"react-component",
   	"ios",
   	"AppHub"
+    "CodePush"
   ],
   "repository": {
   	"type": "git",
-  	"url": "git:https://github.com/huangbow/react-native-apphub.git"
+  	"url": "git@github.com:huangbow/react-native-apphub.git"
   },
   "author": "Bowen Huang <huangbow@gmail.com>",
   "license": "MIT"
