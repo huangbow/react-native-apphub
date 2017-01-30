@@ -11,7 +11,7 @@ RCT_EXPORT_METHOD(initAppHubWithServer:(NSString *) rootURL applicationID:(NSStr
     [AppHub buildManager].automaticPollingEnabled = NO; // control polling build in JS
 }
 
-RCT_EXPORT_METHOD(initAppHub(NSString *) applicationID) {
+RCT_EXPORT_METHOD(initAppHub:(NSString *) applicationID) {
     [AppHub setApplicationID:applicationID];
     [AppHub buildManager].automaticPollingEnabled = NO; // control polling build in JS
 }
