@@ -1,17 +1,23 @@
 
-A JS Wrapper for Apphub SDK (https://apphub.io/). Currently, only suppo
-asdf
-## 1 ## Installing The Library
-`npm install --save react-native-apphub`asdf
+A react-native module that wraps the native Apphub SDK (https://apphub.io/). Currently, only support iOS.
 
-## 2 ## Installing The Dependencya
+## Why?
+[AppHub](https://apphub.io/) is a great tool to dynamically update react native apps, and it provides very clean APIs. However, since the majority of development (including logging) should be done in JS, it will be nice to control this updating function also in JS.
+
+## How?
+This RN library provides APIs including initAppHub, fetchNewBuild (Promise), and setServer (for self host).
+
+## Installing The Library
+`npm install --save react-native-apphub`
+
+## Installing The Dependency
 `npm install --save apphub`
 
-## 3 ## Automatic Installation
+## Automatic Installation
 1. `react-native link apphub` or `npm install -g rnpm && rnpm link apphub`
 2. `react-native link ract-native-apphub` or `npm install -g rnpm && rnpm link react-native-apphub`
 
-## 4 ## Configuration (AppHub Native SDKsdfgdaasdfsa
+## Configuration (AppHub Native SDKsdfgdaasdfsa
 ### Connect Your App to AppHub (Example: [AppDelegate.m](https://github.com/AppHubPlatform/AppHubStarterProject/blob/master/iOS/AppHubStarterProject/AppDelegate.m))
 #### Import AppHub at the beginning of AppDelegate.m (in Swift, add this line to your bridging header)
 ```objective-c
@@ -31,19 +37,23 @@ jsCodeLocation = [build.bundle URLForResource:@"main"
                                 withExtension:@"jsbundle"];
 ```
 
-## 5 ## Usage
+## Usage
 
 ```javascript
 import RNAppHub from 'react-native-apphub'; // Import package from node modules
 
 // Init AppHub
+// For self hosted app
 // RootURL: AppHub Server
-// ApplicationID: Unique app id iisadfiiiids
-RNAppHub.setUpAppHub('RootURL', 'ApplicationID');
+// ApplicationID: Unique app id
+RNAppHub.initAppHubWithServer('RootURL', 'ApplicationID');
 
-// Poll New app bundl
+// For using AppHub service
+// RNAppHub.initAppHub('ApplicationID');
+
+// Poll New app bundle
 RNAppHub.fetchBuild();
 ```
 
-## 6 ## API Reference
+## API Reference
 [AppHub Native SDK](https://github.com/AppHubPlatform/apph
