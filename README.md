@@ -56,4 +56,4 @@ RNAppHub.fetchBuild();
 ```
 
 ## API Reference
-[AppHub Native SDK](https://github.com/AppHubPlatform/apph
+[AppHub Native SDK](http://docs.apphub.io/docs/getting-started)
