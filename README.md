@@ -17,7 +17,7 @@ This RN library provides APIs including initAppHub, fetchNewBuild (Promise), and
 1. `react-native link apphub` or `npm install -g rnpm && rnpm link apphub`
 2. `react-native link ract-native-apphub` or `npm install -g rnpm && rnpm link react-native-apphub`
 
-## Configuration (AppHub Native SDKsdfgdaasdfsa
+## Configuration (AppHub Native SDK)
 ### Connect Your App to AppHub (Example: [AppDelegate.m](https://github.com/AppHubPlatform/AppHubStarterProject/blob/master/iOS/AppHubStarterProject/AppDelegate.m))
 #### Import AppHub at the beginning of AppDelegate.m (in Swift, add this line to your bridging header)
 ```objective-c
