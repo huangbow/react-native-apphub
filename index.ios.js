@@ -4,39 +4,34 @@
  */
 'use strict';
 
-var NativeRNAppHub = require('NativeModules').RNAppHub;
-
-/**
- * High-level docs for the RNAppHub iOS API can be written here.
- */
+var NativeModules = require('react-native').NativeModules
+var NativeRNAppHub = NativeModules.RNAppHub;
 
 var RNAppHub = {
-  test: function() {
+  test: () => {
     NativeRNAppHub.test();
-  }
-
-  initAppHubWithServer: function(rootURL: string, applicationID: string) {
-  	NativeRNAppHub.initAppHubWithServer(rootURL, applicationID);
-  }
-
-  initAppHubr: function(applicationID: string) {
-  	NativeRNAppHub.initAppHub(applicationID);
-  }
-
-  setRootURL: function(rootURL: string) {
-  	NativeRNAppHub.setRootURL(rootURL);
-  }
-
-  setApplicationID: function(applicationID: string) {
-  	NativeRNAppHub.setApplicationID(applicationID);
-  }
-
-  setAutomaticPollingEnabled: function(toggle: boolean) {
-  	NativeRNAppHub.setAutomaticPollingEnabled(toggle);
-  }
-
-  fetchBuild: function () {
-  	NativeRNAppHub.fetchBuild();
+  },
+  initAppHubWithServer: (rootURL: string, applicationID: string) => {
+    NativeRNAppHub.initAppHubWithServer(rootURL, applicationID);
+  },
+  initAppHub: (applicationID: string) => {
+    NativeRNAppHub.initAppHub(applicationID);
+  },
+  setRootURL: (rootURL: string) => {
+    NativeRNAppHub.setRootURL(rootURL);
+  },
+  setApplicationID: (applicationID: string) => {
+    NativeRNAppHub.setApplicationID(applicationID);
+  },
+  setAutomaticPollingEnabled: (toggle: boolean) => {
+    NativeRNAppHub.setAutomaticPollingEnabled(toggle);
+  },
+  fetchBuild: () => {
+    return new Promise((resolve, reject) => {
+      NativeRNAppHub.fetchBuild().then(results => {
+        resolve(results);
+      }).catch(err => reject(err));
+    });
   }
 };
 
