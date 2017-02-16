@@ -37,7 +37,7 @@ RCT_REMAP_METHOD(fetchBuild,
     AHReachability *reachability = [[AppHub sharedManager] reachability];
     
     if (([reachability isReachableViaWiFi] || ([reachability isReachableViaWWAN] && [AppHub buildManager].cellularDownloadsEnabled)) &&
-        [AppHub applicationID]){
+        [AppHub applicationID]) {
             AHBuild *cachedBuild = [AppHub buildManager].currentBuild;
         
             [[AppHub buildManager] fetchBuildWithCompletionHandler:^(AHBuild *result, NSError *error) {
@@ -49,9 +49,10 @@ RCT_REMAP_METHOD(fetchBuild,
                     reject(@"fetchError", @"Cannot fetch builds", error);
                 }
             }];
-        }
+    } else {
+        
     }
-
 }
+
 
 @end
