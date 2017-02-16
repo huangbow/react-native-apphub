@@ -46,11 +46,12 @@ RCT_REMAP_METHOD(fetchBuild,
                 if (result != nil) {
                     resolve(@[cachedBuild.identifier, result.identifier, result.buildDescription]);
                 } else {
+                    NSError *error =
                     reject(@"fetchError", @"Cannot fetch builds", error);
                 }
             }];
     } else {
-        
+        reject(@"fetchError", @"Network not under right condition", nil);
     }
 }
 
