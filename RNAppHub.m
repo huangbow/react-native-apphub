@@ -1,5 +1,7 @@
 #import "RNAppHub.h"
 #import <AppHub/AppHub.h>
+#import <AppHub/AHReachability.h>
+#import <AppHub/AppHub+Private.h>
 
 @implementation RNAppHub
 
@@ -32,17 +34,24 @@ RCT_REMAP_METHOD(fetchBuild,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
     
-    AHBuild *cachedBuild = [AppHub buildManager].currentBuild;
+    AHReachability *reachability = [[AppHub sharedManager] reachability];
     
-    [[AppHub buildManager] fetchBuildWithCompletionHandler:^(AHBuild *result, NSError *error) {
-        // If the `result` AHBuild is not nil, then it is guaranteed
-        // to be the most up-to-date build of the app.
-        if (result != nil) {
-            resolve(@[cachedBuild.identifier, result.identifier, result.buildDescription]);
-        } else {
-            reject(@"fetchError", @"Cannot fetch builds", error);
+    if (([reachability isReachableViaWiFi] || ([reachability isReachableViaWWAN] && [AppHub buildManager].cellularDownloadsEnabled)) &&
+        [AppHub applicationID]){
+            AHBuild *cachedBuild = [AppHub buildManager].currentBuild;
+        
+            [[AppHub buildManager] fetchBuildWithCompletionHandler:^(AHBuild *result, NSError *error) {
+                // If the `result` AHBuild is not nil, then it is guaranteed
+                // to be the most up-to-date build of the app.
+                if (result != nil) {
+                    resolve(@[cachedBuild.identifier, result.identifier, result.buildDescription]);
+                } else {
+                    reject(@"fetchError", @"Cannot fetch builds", error);
+                }
+            }];
         }
-    }];
+    }
+
 }
 
 @end

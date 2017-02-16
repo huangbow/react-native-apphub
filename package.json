@@ -6,16 +6,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-  	"react-native",
-  	"react-component",
-  	"ios",
-  	"AppHub",
+    "react-native",
+    "react-component",
+    "ios",
+    "AppHub",
     "CodePush"
   ],
   "repository": {
-  	"type": "git",
-  	"url": "git@github.com:huangbow/react-native-apphub.git"
+    "type": "git",
+    "url": "git@github.com:huangbow/react-native-apphub.git"
   },
   "author": "Bowen Huang <huangbow@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apphub": "^0.5.1"
+  }
 }
